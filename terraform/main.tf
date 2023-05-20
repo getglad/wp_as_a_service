@@ -56,3 +56,9 @@ module "image" {
   subscription_tier = var.image_subscription_tier
 }
 
+module "storage" {
+  source = "./storage"
+
+  do_region = var.do_region
+}
+
