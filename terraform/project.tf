@@ -5,6 +5,6 @@ resource "digitalocean_project" "wpaas" {
 resource "digitalocean_project_resources" "wpaas" {
   project = digitalocean_project.wpaas.id
   resources = [
-    digitalocean_app.wpaas.urn
+    module.compute.urn
   ]
 }
