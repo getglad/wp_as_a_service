@@ -3,9 +3,19 @@ resource "digitalocean_app" "wpaas" {
     name   = var.project_name
     region = var.do_region
 
-    domain {
-      name = var.public_url
-      type = "PRIMARY"
+    dynamic "domain" {
+      for_each = var.public_url != null ? [1] : []
+      content {
+        name = var.public_url
+        type = "PRIMARY"
+      }
+    }
+
+    dynamic "domain" {
+      for_each = var.public_url == null ? [] : [1]
+      content {
+        type = "DEFAULT"
+      }
     }
 
     service {
