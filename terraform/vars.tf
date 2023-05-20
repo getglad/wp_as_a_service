@@ -67,7 +67,7 @@ variable "image_tag" {
 }
 
 variable "public_url" {
-  default = "/"
+  default = null
   type    = string
 }
 
