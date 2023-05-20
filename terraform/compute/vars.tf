@@ -18,7 +18,7 @@ variable "instance_size" {
   type = string
 }
 
-variable "image_endpoint" {
+variable "image_name" {
   type = string
 }
 
