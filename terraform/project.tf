@@ -1,5 +1,5 @@
 resource "digitalocean_project" "wpaas" {
-  name = local.project_name
+  name = local.project_name.name
 }
 
 resource "digitalocean_project_resources" "wpaas" {
