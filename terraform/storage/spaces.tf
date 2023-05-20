@@ -1,7 +1,7 @@
 resource "random_pet" "project" {}
 
 resource "digitalocean_spaces_bucket" "wpaas" {
-  name   = random_pet.project.keepers.name.id
+  name   = random_pet.project.keepers.id
   region = "nyc3"
 
   versioning {
