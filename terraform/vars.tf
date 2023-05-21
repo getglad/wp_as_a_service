@@ -43,6 +43,17 @@ variable "spaces_secret" {
 }
 
 ###
+# Database
+###
+
+variable "existing_db_name" {
+  default     = null
+  description = "When using a preexisting database"
+  type        = string
+}
+
+
+###
 # Container Image
 ###
 

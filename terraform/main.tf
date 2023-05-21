@@ -62,3 +62,9 @@ module "storage" {
   do_region = var.do_region
 }
 
+module "database" {
+  source = "./db"
+
+  existing_db_name = var.existing_db_name
+  wpaas_app_id     = module.compute.id
+}
