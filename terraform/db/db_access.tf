@@ -3,6 +3,6 @@ resource "digitalocean_database_firewall" "wpaas" {
 
   rule {
     type  = "app"
-    value = digitalocean_droplet.web.id
+    value = var.wpaas_app_id
   }
 }
