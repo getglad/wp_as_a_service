@@ -19,7 +19,7 @@ resource "digitalocean_app" "wpaas" {
     }
 
     service {
-      http_port          = 8080
+      http_port          = 80
       instance_count     = 1
       instance_size_slug = var.instance_size
       name               = "wpaas"
@@ -27,6 +27,7 @@ resource "digitalocean_app" "wpaas" {
       image {
         registry_type = "DOCR"
         repository    = "wpaas"
+        tag           = var.image_name
       }
 
       routes {
