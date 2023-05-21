@@ -27,7 +27,7 @@ resource "digitalocean_app" "wpaas" {
       image {
         registry_type = "DOCR"
         repository    = "wpaas"
-        tag           = var.image_name
+        tag           = var.image_tag
       }
 
       routes {
