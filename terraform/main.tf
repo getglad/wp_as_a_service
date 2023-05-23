@@ -26,12 +26,16 @@ provider "digitalocean" {
 module "compute" {
   source = "./compute"
 
-  do_region     = var.do_region_app
-  instance_size = var.instance_size
-  image_name    = module.image.image_name
-  image_tag     = var.image_tag
-  project_name  = local.project_name
-  public_url    = var.public_url
+  bucket_access_key    = var.spaces_key
+  bucket_access_secret = var.spaces_secret
+  bucket_name          = module.storage.do_spaces_name
+  bucket_region        = var.do_region
+  do_region            = var.do_region_app
+  instance_size        = var.instance_size
+  image_name           = module.image.image_name
+  image_tag            = var.image_tag
+  project_name         = local.project_name
+  public_url           = var.public_url
 
   wp_db_host          = var.wp_db_host
   wp_db_user          = var.wp_db_user

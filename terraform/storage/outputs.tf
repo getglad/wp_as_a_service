@@ -1,5 +1,5 @@
-output "do_spaces" {
-  value = digitalocean_spaces_bucket.wpaas.id
+output "do_spaces_name" {
+  value = digitalocean_spaces_bucket.wpaas.name
 }
 
 output "urn" {
