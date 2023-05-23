@@ -3,6 +3,8 @@ IMG_REPO := wondrous-bullfrog
 
 tf_fmt:
 	terraform fmt ./terraform/**/*
+	cd ./terraform && terraform init
+	cd ./terraform && terraform validate
 
 img_build:
 	docker build --progress=plain -t ${IMG_TAG} -f docker/Dockerfile .

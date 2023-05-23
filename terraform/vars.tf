@@ -78,8 +78,9 @@ variable "image_tag" {
 }
 
 variable "public_url" {
-  default = null
-  type    = string
+  description = "If left blank, a Digital Ocean endpoint will be provided."
+  default     = null
+  type        = string
 }
 
 ###
@@ -87,8 +88,9 @@ variable "public_url" {
 ###
 
 variable "wp_db_host" {
-  type      = string
-  sensitive = true
+  description = "Digital Ocean sets their hosted DBs to non-default ports. Should be set following a `<db_host>:<db_port>` pattern."
+  type        = string
+  sensitive   = true
 }
 
 variable "wp_db_user" {
