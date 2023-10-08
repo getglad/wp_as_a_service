@@ -129,13 +129,7 @@ resource "digitalocean_app" "wpaas" {
 
       env {
         key   = "WORDPRESS_CONFIG_EXTRA"
-        value = <<EOT
-          define( 'S3_UPLOADS_BUCKET', '${var.bucket_name}' );
-          define( 'S3_UPLOADS_REGION', '${var.bucket_region}' );
-          define( 'S3_UPLOADS_KEY', '${var.bucket_access_key}' );
-          define( 'S3_UPLOADS_SECRET', '${var.bucket_access_secret}' );
-          define( 'S3_UPLOADS_BUCKET_URL', 'https://${var.bucket_name}.${var.bucket_region}.digitaloceanspaces.com' );
-        EOT
+        value = local.wp_extra_configs
         scope = "RUN_TIME"
         type  = "SECRET"
       }

@@ -50,6 +50,9 @@ module "compute" {
   wp_auth_salt        = var.wp_auth_salt
   wp_logged_in_salt   = var.wp_logged_in_salt
   wp_nonce_salt       = var.wp_nonce_salt
+
+  wp_allow_multisite = var.wp_allow_multisite
+  wp_domain_current_site = var.wp_domain_current_site
 }
 
 module "image" {

@@ -31,6 +31,21 @@ variable "public_url" {
 }
 
 ###
+# Wordpress Multisite
+###
+
+variable "wp_allow_multisite" {
+  type = bool
+  default = false
+}
+
+variable "wp_domain_current_site" {
+  type = string
+  default = ""
+  description = "The primary hostname/URL for the multisite deployment"
+}
+
+###
 # App
 ###
 
