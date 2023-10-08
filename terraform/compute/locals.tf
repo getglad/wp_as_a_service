@@ -17,6 +17,13 @@ locals {
         define( 'BLOG_ID_CURRENT_SITE', 1 );
     EOT
 
-    wp_extra_configs = var.wp_allow_multisite ? "${local.wp_extra_config_defaults} ${local.wp_extra_config_multisite}" : local.wp_extra_config_defaults
+    wp_site_url = <<EOT
+        define( 'WP_HOME', '${var.wp_home}' );
+        define( 'WP_SITEURL', '${var.wp_siteurl}' );
+    EOT
+
+    wp_extra_configs_with_multisite = var.wp_allow_multisite ? "${local.wp_extra_config_defaults} ${local.wp_extra_config_multisite}" : local.wp_extra_config_defaults
+
+    wp_extra_configs = var.wp_home == "" ? local.wp_extra_configs_with_multisite : "${local.wp_extra_configs_with_multisite} ${local.wp_site_url}"
 
 }
