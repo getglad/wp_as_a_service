@@ -22,6 +22,8 @@ FROM wordpress:php8.2-apache
 
 WORKDIR /usr/src/wordpress
 
+RUN apt update && apt -y full-upgrade
+
 RUN set -eux; \
     find /etc/apache2 -name '*.conf' -type f -exec sed -ri -e "s!/var/www/html!$PWD!g" -e "s!Directory /var/www/!Directory $PWD!g" '{}' +; \
     cp -s wp-config-docker.php wp-config.php
@@ -31,3 +33,5 @@ COPY --from=step1 /usr/src/wordpress/wp-content/plugins/ wp-content/plugins/
 RUN mkdir ./wp-content/mu-plugins
 
 COPY ./docker/s3-endpoint.php wp-content/mu-plugins/s3-endpoint.php
+
+RUN chown -R www-data:www-data /usr/src/wordpress
