@@ -34,6 +34,10 @@ resource "digitalocean_app" "wpaas" {
         path = "/"
       }
 
+      health_check {
+        http_path = "/"
+      }
+
       env {
         key   = "WORDPRESS_DB_HOST"
         value = var.wp_db_host
