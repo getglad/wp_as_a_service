@@ -3,6 +3,20 @@ resource "digitalocean_app" "wpaas" {
     name   = var.project_name
     region = var.do_region
 
+    ingress {
+      rule {
+        component {
+          name = "wpaas"
+        }
+
+        match {
+          path {
+            prefix = "/"
+          }
+        }
+      }
+    }
+
     dynamic "domain" {
       for_each = var.public_url != null ? [1] : []
       content {
@@ -28,10 +42,6 @@ resource "digitalocean_app" "wpaas" {
         registry_type = "DOCR"
         repository    = "wpaas"
         tag           = var.image_tag
-      }
-
-      routes {
-        path = "/"
       }
 
       health_check {
