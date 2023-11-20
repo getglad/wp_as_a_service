@@ -35,23 +35,23 @@ variable "public_url" {
 ###
 
 variable "wp_allow_multisite" {
-  type = bool
+  type    = bool
   default = false
 }
 
 variable "wp_domain_current_site" {
-  type = string
-  default = ""
+  type        = string
+  default     = ""
   description = "The primary hostname/URL for the multisite deployment"
 }
 
 variable "wp_home" {
-  type = string
+  type    = string
   default = ""
 }
 
 variable "wp_siteurl" {
-  type = string
+  type    = string
   default = ""
 }
 

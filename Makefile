@@ -2,7 +2,7 @@ IMG_TAG := wpaas
 IMG_REPO := wondrous-bullfrog
 
 tf_fmt:
-	terraform fmt ./terraform/**/*
+	terraform fmt ./terraform/**/*.tf
 	cd ./terraform && terraform init
 	cd ./terraform && terraform validate
 
